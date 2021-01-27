@@ -1,0 +1,38 @@
+<Schema name="youth_mortality">
+  <Cube name="mortality" visible="true" cache="true" enabled="true">
+    <Table name="yoth_mortality" alias="">
+    </Table>
+    <Dimension type="StandardDimension" visible="true" foreignKey="mortalite_idmortalite" name="mortalite">
+      <Hierarchy name="mortalite" visible="true" hasAll="true" primaryKey="idmortalite">
+        <Table name="mortalite" alias="">
+        </Table>
+        <Level name="idmortalite" visible="true" table="mortalite" column="idmortalite" nameColumn="idmortalite" uniqueMembers="false">
+        </Level>
+        <Level name="type" visible="true" table="mortalite" column="type" nameColumn="type" uniqueMembers="false">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="temps_idtemps" name="temps">
+      <Hierarchy name="temps" visible="true" hasAll="true" primaryKey="idtemps">
+        <Table name="temps" alias="">
+        </Table>
+        <Level name="idtemps" visible="true" table="temps" column="idtemps" nameColumn="idtemps" uniqueMembers="false">
+        </Level>
+        <Level name="year" visible="true" table="temps" column="year" nameColumn="year" uniqueMembers="false">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="gender_idgender" name="gender">
+      <Hierarchy name="gender" visible="true" hasAll="true" primaryKey="idgender">
+        <Table name="gender" alias="">
+        </Table>
+        <Level name="idgender" visible="true" table="gender" column="idgender" nameColumn="idgender" uniqueMembers="false">
+        </Level>
+        <Level name="type" visible="true" table="gender" column="type" nameColumn="type" uniqueMembers="false">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Measure name="mortalite_ration" column="mortalite_ration" aggregator="avg" visible="true">
+    </Measure>
+  </Cube>
+</Schema>

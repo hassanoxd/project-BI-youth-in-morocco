@@ -1,0 +1,7 @@
+SELECT {[Measures].[mortalite_ration]} ON COLUMNS, CrossJoin({[temps].[41].[2000], [temps].[46].[2005], [temps].[51].[2010], [temps].[56].[2015], [temps].[57].[2016]}, {[mortalite].[1].[communicable diseases], [mortalite].[2].[injury], [mortalite].[3].[non-communicable diseases]}) ON ROWS FROM [mortality]
+REQ1:
+SELECT {[Measures].[mortalite_ration]} ON COLUMNS, CrossJoin({[gender].[1].[male], [gender].[2].[female]}, CrossJoin({[temps].[41].[2000], [temps].[46].[2005], [temps].[51].[2010], [temps].[56].[2015], [temps].[57].[2016]}, {[mortalite].[1].[communicable diseases], [mortalite].[2].[injury], [mortalite].[3].[non-communicable diseases]})) ON ROWS FROM [mortality]
+req2:
+SELECT {[Measures].[population]} ON COLUMNS, CrossJoin({[milieu].[1].[urbain], [milieu].[2].[rural]}, CrossJoin({[temps].[1].[1960], [temps].[23].[1982], [temps].[35].[1994], [temps].[45].[2004], [temps].[55].[2014], [temps].[56].[2015], [temps].[57].[2016], [temps].[58].[2017], [temps].[59].[2018], [temps].[60].[2019]}, {[gender].[1].[male], [gender].[2].[female]})) ON ROWS FROM [cube]
+req3:
+SELECT {[Measures].[population]} ON COLUMNS, CrossJoin({[gender].[1].[male], [gender].[2].[female]}, CrossJoin({[temps].[1].[1960], [temps].[35].[1994], [temps].[45].[2004], [temps].[55].[2014], [temps].[56].[2015], [temps].[57].[2016], [temps].[58].[2017], [temps].[59].[2018], [temps].[60].[2019]}, {[milieu].[1].[urbain], [milieu].[2].[rural]})) ON ROWS FROM [cube]

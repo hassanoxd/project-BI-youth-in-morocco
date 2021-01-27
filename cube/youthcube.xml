@@ -1,0 +1,50 @@
+<Schema name="youth2">
+  <Cube name="cube" visible="true" cache="true" enabled="true">
+    <Table name="youth">
+    </Table>
+    <Dimension type="StandardDimension" visible="true" foreignKey="milieu_idmilieu" highCardinality="false" name="milieu">
+      <Hierarchy name="milieu" visible="true" hasAll="true" primaryKey="idmilieu">
+        <Table name="milieu">
+        </Table>
+        <Level name="idmilieu" visible="true" table="milieu" column="idmilieu" nameColumn="idmilieu" type="Integer" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="type" visible="true" table="milieu" column="type" nameColumn="type" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="temps_idtemps" highCardinality="false" name="temps">
+      <Hierarchy name="temps" visible="true" hasAll="true" primaryKey="idtemps">
+        <Table name="temps">
+        </Table>
+        <Level name="idtemps" visible="true" table="temps" column="idtemps" nameColumn="idtemps" type="Integer" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="year" visible="true" table="temps" column="year" nameColumn="year" type="Integer" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="gender_idgender" highCardinality="false" name="gender">
+      <Hierarchy name="gender" visible="true" hasAll="true" primaryKey="idgender">
+        <Table name="gender">
+        </Table>
+        <Level name="idgender" visible="true" table="gender" column="idgender" nameColumn="idgender" type="Integer" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="type" visible="true" table="gender" column="type" nameColumn="type" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Measure name="population" column="population" aggregator="sum" visible="true">
+    </Measure>
+    <Measure name="employment_ratio" column="employment_ratio" aggregator="avg" visible="true">
+    </Measure>
+    <Measure name="labor_force_participation_rate" column="labor_force_participation_rate" aggregator="avg" visible="true">
+    </Measure>
+    <Measure name="literacy_rate" column="literacy_rate" aggregator="avg" visible="true">
+    </Measure>
+    <Measure name="prevalence_of_hiv" column="prevalence_of_hiv" aggregator="avg" visible="true">
+    </Measure>
+    <Measure name="taux_de_chomage" column="taux_de_chomage" aggregator="avg" visible="true">
+    </Measure>
+    <Measure name="lower_secondary_completion_rate" column="lower_secondary_completion_rate" aggregator="avg" visible="true">
+    </Measure>
+  </Cube>
+</Schema>
